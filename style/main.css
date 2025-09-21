@@ -290,3 +290,13 @@ body {
     font-weight: lighter;
   }
 }
+.countdown {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #555;
+  margin-top: 10px;
+}
+.countdown #countup {
+  font-weight: 700;
+  color: #ff69b4;
+}

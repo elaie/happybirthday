@@ -60,21 +60,15 @@ const animationTimeline = () => {
             y: 10
         },
     "-=1")
-    .from(".three", 0.7, {
-        opacity: 0,
-        y: 10
-    })
-    .to(".three",
-        0.7,
-        {
-            opacity: 0,
-            y: 10
-        },
-    "+=3")
-    .from(".four", 0.7, {
-        scale: 0.2,
-        opacity: 0,
-    })
+    .from(".three", 0.7, { opacity: 0, y: 10 })
+.to(".three", 0.7, { opacity: 0, y: 10 }, "+=3")
+
+// NEW: countdown enters, chills, then exits
+.from(".countdown", 0.6, { opacity: 0, y: 10 })
+.to(".countdown", 0.6, { opacity: 0, y: -10 }, "+=3")
+
+.from(".four", 0.7, { scale: 0.2, opacity: 0 })
+
     .from(".fake-btn", 0.3, {
         scale: 0.2,
         opacity: 0,
@@ -255,3 +249,21 @@ const animationTimeline = () => {
         tl.restart();
     });
 }
+// Count-up timer from Sep 16, 2025 12:39 PM
+const startDate = new Date("September 16, 2025 12:39:00").getTime();
+
+function updateCountUp() {
+  const el = document.getElementById("countup");
+  if (!el) return; // safety if DOM not ready
+  const now = Date.now();
+  const diff = Math.max(0, now - startDate);
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  el.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+setInterval(updateCountUp, 1000);
+updateCountUp();
