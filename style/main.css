@@ -109,10 +109,10 @@ body {
 }
 
 .six .hat {
-  left: 41.5%;
+  left: 45.5%;
   position: absolute;
   /* transform: scale(0.1); */
-  top: -35%;
+  top: -30%;
   width: 80px;
 }
 
@@ -224,29 +224,29 @@ body {
   cursor: pointer;
   z-index: 3;
 }
-
 /* Media Queries */
 @media screen and (max-height: 1000px) {
   .six .hat {
-    left: 40%;
+    left: 60%;
   }
 }
 
 @media screen and (max-height: 800px) {
   .six .hat {
-    left: 37%;
+    right: 33%;
   }
 }
 
 @media screen and (max-height: 700px) {
   .six .hat {
-    left: 32%;
+    right: 30%;
   }
 }
 
 @media screen and (max-height: 850px) and (max-width: 450px) {
   .six .hat {
-    left: 32%;
+    right: 32%;
+    bottom: 5%;
   }
 }
 
